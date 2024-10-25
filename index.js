@@ -1,10 +1,11 @@
 const { pollStatus } = require('./client');
+const config = require('./config.json'); // Import config for dynamic settings
 
 // Poll the server with custom settings
 (async () => {
     const result = await pollStatus('http://localhost:3000/status', {
-        interval: 2000,  // Poll every 2 seconds
-        retries: 10      // Retry up to 10 times
+        interval: config.interval,  // Use value from config.json
+        retries: config.retries      // Use value from config.json
     });
     console.log('Final Job Status:', result);
 })();
