@@ -17,7 +17,7 @@ This project simulates a server that processes jobs and returns their status. Th
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd status-checker
+   cd status_checker
    ```
 
 2. Install dependencies:
