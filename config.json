@@ -1,0 +1,5 @@
+{
+    "interval": 1000,
+    "retries": 5,
+    "timeout": 2000
+}
