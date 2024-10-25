@@ -8,7 +8,19 @@ const DEFAULT_OPTIONS = {
     timeout: config.timeout || 2000
 };
 
-// Function to poll the server for status
+/**
+ * Polls the server for status until a final result is received or the maximum number of retries is reached.
+ *
+ * @async
+ * @function pollStatus
+ * @param {string} url - The URL of the server endpoint to poll.
+ * @param {Object} [options=DEFAULT_OPTIONS] - The polling options.
+ * @param {number} options.interval - Time between retries in milliseconds.
+ * @param {number} options.retries - Maximum number of retries.
+ * @param {number} options.timeout - Timeout for each request in milliseconds.
+ * @returns {Promise<string>} The final job status, either 'completed' or 'error'.
+ * @throws {Error} Throws an error if the maximum number of retries is reached without a final result.
+ */
 async function pollStatus(url, options = DEFAULT_OPTIONS) {
     const { interval, retries, timeout } = options;
     let attempt = 0;
